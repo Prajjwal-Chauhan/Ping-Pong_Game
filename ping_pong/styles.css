@@ -1,0 +1,123 @@
+*,
+*::after,
+*::before {
+    box_sizing: border_box;
+}
+
+:root{
+    --hue:0;
+    --saturation:50%;
+    --foreground-color:hsl(var(--hue),var(--saturation),75%);
+    --background-color:hsl(var(--hue),var(--saturation),15%);
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+.paddle {
+    --position: 50;
+
+    position: absolute;
+    background-color: var(--foreground-color);
+    /* background-color: aliceblue; */
+    top: calc(var(--position)*1vh);
+    transform: translateY(-50%);
+    width: 1vh;
+    height: 10vh;
+
+}
+
+.paddle.left{
+    left:1vw;
+}
+
+.paddle.right{
+    right:1vw;
+}
+
+.ball{
+    z-index: -1;
+    --x: 50;
+    --y: 50;
+
+    position: absolute;
+    background-color: var(--foreground-color);
+    border-radius: 50%;
+    /* background-color: aliceblue; */
+    left: calc(var(--x)*1vw);
+    top: calc(var(--y)*1vh);
+    transform: translateY(-50%,-50%);
+    width: 2.5vh;
+    height:2.5vh;
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+    font-size: 4vh;
+    font-weight: bold;
+    color: var(--foreground-color);
+}
+
+.name{
+    font-size: 5vh;
+}
+
+#level{
+    
+    display: flex;
+    opacity: 0.5;
+    flex-grow: 1;
+    flex-basis: 0;
+    justify-content: center;
+    font-size: 3vh;
+    padding: 0 2vh;
+    margin: 1vh 0;
+    font-weight: bold;
+    color: var(--foreground-color);
+}
+
+.score > *{
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 2vh;
+    margin: 1vh 0;
+    opacity: 0.5;
+}
+
+.score > :first-child{
+    text-align: right;
+    border-right: 0.5vh solid var(--foreground-color);
+}
+
+
+#cards{
+    display: flex;
+    z-index: 2;
+    /* align-items: center; */
+    padding: 2vh 6vh;
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    margin: 2vh;
+    text-align: center;
+    padding: 4vh 5vh;
+    box-shadow: 4px 4px 8px 0 rgba(0,0,0,0.2);
+    color: var(--foreground-color);
+    background-color: var(--background-color);
+    transition: 0.3s;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 116px 116px 132px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+  }
